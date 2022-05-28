@@ -1,5 +1,4 @@
 import { times, range } from "lodash/fp";
-
 export const TILE_STATUSES = {
   HIDDEN: "hidden",
   MINE: "mine",
