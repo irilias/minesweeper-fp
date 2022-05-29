@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("getAdjacentTiles", (poistionX, poistionY) => {
+  cy.get(
+    `[data-x=${poistionX - 1}][data-y=${poistionY - 1}]` +
+      `, [data-x=${poistionX - 1}][data-y=${poistionY}]` +
+      `, [data-x=${poistionX - 1}][data-y=${poistionY + 1}]` +
+      `, [data-x=${poistionX}][data-y=${poistionY - 1}]` +
+      `, [data-x=${poistionX}][data-y=${poistionY + 1}]` +
+      `, [data-x=${poistionX + 1}][data-y=${poistionY - 1}]` +
+      `, [data-x=${poistionX + 1}][data-y=${poistionY}]` +
+      `, [data-x=${poistionX + 1}][data-y=${poistionY + 1}]`
+  );
+});

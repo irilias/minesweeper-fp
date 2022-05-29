@@ -51,17 +51,6 @@ export function markTile(board, { x, y }) {
   }
 }
 
-function replaceTile(board, position, newTile) {
-  return board.map((row, x) => {
-    return row.map((tile, y) => {
-      if (positionMatch(position, { x, y })) {
-        return newTile;
-      }
-      return tile;
-    });
-  });
-}
-
 export function revealTile(board, { x, y }) {
   const tile = board[x][y];
   if (tile.status !== TILE_STATUSES.HIDDEN) {
@@ -126,4 +115,15 @@ function nearbyTiles(board, { x, y }) {
       });
     })
     .filter((tile) => tile != null);
+}
+
+function replaceTile(board, position, newTile) {
+  return board.map((row, x) => {
+    return row.map((tile, y) => {
+      if (positionMatch(position, { x, y })) {
+        return newTile;
+      }
+      return tile;
+    });
+  });
 }
