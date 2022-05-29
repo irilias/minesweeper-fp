@@ -19,23 +19,9 @@ let board = createBoard(
   getMinePositions(BOARD_SIZE, NUMBER_OF_MINES)
 );
 
-board = [
-  [
-    { x: 0, y: 0, mine: true, status: TILE_STATUSES.HIDDEN },
-    { x: 0, y: 1, mine: false, status: TILE_STATUSES.HIDDEN },
-    { x: 0, y: 2, mine: false, status: TILE_STATUSES.HIDDEN },
-  ],
-  [
-    { x: 1, y: 0, mine: false, status: TILE_STATUSES.HIDDEN },
-    { x: 1, y: 1, mine: false, status: TILE_STATUSES.HIDDEN },
-    { x: 1, y: 2, mine: false, status: TILE_STATUSES.HIDDEN },
-  ],
-  [
-    { x: 2, y: 0, mine: false, status: TILE_STATUSES.HIDDEN },
-    { x: 2, y: 1, mine: false, status: TILE_STATUSES.HIDDEN },
-    { x: 2, y: 2, mine: false, status: TILE_STATUSES.HIDDEN },
-  ],
-];
+if (window.Cypress) {
+  board = window.board;
+}
 const boardElement = document.querySelector(".board");
 const minesLeftText = document.querySelector("[data-mine-count]");
 const messageText = document.querySelector(".subtext");

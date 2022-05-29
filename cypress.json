@@ -1,4 +1,6 @@
 {
     "baseUrl":"http://localhost:1234/",
-    "pluginsFile": false
+    "pluginsFile": false,
+    "viewportWidth": 900,
+    "viewportHeight": 900
 }
